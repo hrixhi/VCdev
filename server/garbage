@@ -1,0 +1,41 @@
+///////////////// =====> code to initialize a new schedule for a doctor -> modify later based on the doctors ui
+app.get('/temp', async (req, res) => {
+
+        const doc = await doctors.findOne({
+            firstname: "Manisha"
+        }).catch()
+
+        console.log(doc._id)
+
+        const schedulex = await new schedule({
+           _doctor: doc._id,
+           oldestDate: {date:7, month:7, year:2018 },
+           latestDate: {date:14, month:7, year:2018},
+           dailySchedule: [
+               {
+                date: 7,
+                month: 7,
+                year: 2018,
+                availableToday: [{hour: 10, minute: 0}, {hour: 11, minute: 30}]
+               },
+               {
+                date: 9,
+                month: 7,
+                year: 2018,
+                availableToday: [{hour: 12, minute: 0}, {hour: 13, minute: 0}, {hour: 14, minute: 40}]
+               },
+               {
+                date: 10,
+                month: 7,
+                year: 2018,
+                availableToday: [{hour: 11, minute: 45}, {hour: 14, minute: 30}]
+               },
+           ]
+         })
+        .save().catch()
+        res.send({worked: true})
+    });
+/////////////////// ========= END
+
+
+///////////////// =========> 

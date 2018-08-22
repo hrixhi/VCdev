@@ -1,0 +1,21 @@
+.left {
+    width: 50%;
+    float: left;
+}
+
+.lefter {
+    width: 70%;
+    float: left;
+}
+
+.cards {
+    width: 95%;
+    float: left;
+    overflow:auto;
+}
+
+
+.right {
+    width: 50%;
+    float: right;
+}
